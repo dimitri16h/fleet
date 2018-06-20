@@ -8,4 +8,6 @@
 
 I will add to this as I have better flowing notes.
 
-Moqup: Still adding to this sporadically
+Moqup: https://app.moqups.com/dimitri16h/neRsxBqUUF/edit/page/a5ef391a8 
+
+Still adding to this sporadically 
