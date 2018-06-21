@@ -13,6 +13,6 @@ To create a website for freight shipping companies to better manage their day to
 
 I will add to this as I have better flowing notes.
 
-Moqup: https://app.moqups.com/dimitri16h/neRsxBqUUF/edit/page/a5ef391a8 
+Moqup: https://app.moqups.com/dimitri16h/5AZPpRCMP7/view
 
 Still adding to this sporadically 
