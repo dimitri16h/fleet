@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
-    <title >Fleet</title>
+    <title>{{ config('app.name', 'Laravel') }}</title>
 
     <!-- Bootstrap 4.1.1-->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
@@ -17,7 +17,7 @@
 <body class="text-light text-center container-fluid">
 
     <!-- Top Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <nav class="navbar navbar-expand-lg navbar-dark">
         <button class="btn btn-secondary" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
         </button>
@@ -57,7 +57,7 @@
 
     <div style="background-color: #03002e;" class="mt-1 p-3 text-center">
         
-        <p id="questionText">What can we do for your company?<p>
+        <p id="questionText">What can we do for you?<p>
         
         <div class="row justify-content-center" style="height: 108px;">
             <button class="btn-secondary text-center p-1 m-2 col col-sm-3">

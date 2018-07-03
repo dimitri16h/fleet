@@ -1,17 +1,9 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
-    <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-            <div class="panel panel-default">
-                <div class="panel-heading">Dashboard</div>
-
-                <div class="panel-body">
-                    HELLO FROM /Dispatch
-                </div>
-            </div>
-        </div>
-    </div>
+<div class="container text-center">
+    <flex class="bg-light p-3">
+        HELLO FROM /Dispatch
+    </flex>
 </div>
 @endsection
