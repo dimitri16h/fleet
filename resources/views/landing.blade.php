@@ -60,24 +60,24 @@
         <p id="questionText">What can we do for you?<p>
         
         <div class="row justify-content-center" style="height: 108px;">
-            <button class="btn-secondary text-center p-1 m-2 col col-sm-3">
+            <button class="btn-secondary text-center p-1 m-2 col col-sm-3 btn">
                 <img src="{{ asset('img/graph.png') }}"></img>
                 <div>Analytics</div>
             </button>
 
-            <button class="btn-secondary text-center p-1 m-2 col col-sm-3">
+            <button class="btn-secondary text-center p-1 m-2 col col-sm-3 btn">
                 <img src="{{ asset('img/truck.png') }}"></img>
                 <div>Truck Management</div>
             </button>
         </div>
 
         <div class="row justify-content-center" style="height: 108px;">
-            <button class="btn-secondary text-center p-1 m-2 col col-sm-3">
+            <button class="btn-secondary text-center p-1 m-2 col col-sm-3 btn">
                 <img src="{{ asset('img/taxes.png') }}"></img>
                 <div>IFTA Assistance</div>
             </button>
 
-            <button class="btn-secondary text-center p-1 m-2 col col-sm-3">
+            <button class="btn-secondary text-center p-1 m-2 col col-sm-3 btn">
                 <img src="{{ asset('img/invoice1.png') }}"></img>
                 <div>Invoicing</div>
             </button>

@@ -22,17 +22,20 @@
         <!-- Top Navbar -->
         <nav class="navbar navbar-dark">
 
+            @guest
             <!-- Branding Image -->
+            <a class="navbar-brand" href="{{ url('/') }}">
+                {{ config('app.name', 'Laravel') }}
+            </a>
+
+            <a href="{{ route('login') }}">Login</a>
+                <a href="{{ route('register') }}">Register</a>
+
+            @else 
             <a class="navbar-brand" href="{{ url('/home') }}">
                 {{ config('app.name', 'Laravel') }}
             </a>
 
-            
-
-            @guest
-                <a href="{{ route('login') }}">Login</a>
-                <a href="{{ route('register') }}">Register</a>
-            @else 
                 <div class="dropdown">
                     <a class="dropdown-toggle text-light" data-toggle="dropdown">
                         {{ Auth::user()->name }}
