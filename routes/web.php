@@ -21,6 +21,10 @@ Route::get('/dispatch', function () {
     return view('dispatch');
 });
 
+Route::get('/test', function () {
+    return view('test');
+});
+
 Route::get('/trucks', function () {
     return view('trucks');
 });
@@ -30,8 +34,3 @@ Route::get('/customers', function () {
 });
 
 Auth::routes();
-
-
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
