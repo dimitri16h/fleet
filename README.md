@@ -15,4 +15,25 @@ I will add to this as I have better flowing notes.
 
 Moqup: https://app.moqups.com/dimitri16h/5AZPpRCMP7/view
 
-Still adding to this sporadically 
+
+#Database Requirements
+
+The database will need the following tables:
+
+	Users
+	Permissions
+	Companies
+	Trucks
+	Customers
+	Shipments
+
+Users - Companies many to many
+
+
+Companies - Trucks one to many
+Companies - Customers one to many
+Companies - Shipments one to many
+
+Shipments - Customers one to many
+Shipments - Trucks many to many
+
