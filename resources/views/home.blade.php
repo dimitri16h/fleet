@@ -19,7 +19,7 @@
       </button>
       <ul class="dropdown-menu" aria-labelledby="dropdownMenu1" style="max-width: 85vw; text-overflow: ellipsis; white-space: nowrap; overflow: hidden;">
         @foreach ($companies as $company)
-        <li><button class="btn-link btn text-dark" onclick="document.getElementById('dropdownMenu1').innerHTML ='{{$company->name}}'" data-value="action">{{$company->name}}</button></li>
+        <li><button class="btn-link btn text-dark" style="width:100%;" onclick="document.getElementById('dropdownMenu1').innerHTML ='{{$company->name}}'" data-value="action">{{$company->name}}</button></li>
         @endforeach
         <li>
             <a href="/companies/create" class="btn btn-link">Add New Company
