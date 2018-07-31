@@ -10,7 +10,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="index.html">Admin Panel</a>
+                <a class="navbar-brand" href="index.html">Fleet</a>
             </div>
             <div class="collapse navbar-collapse navbar-ex1-collapse">
                 <ul id="active" class="nav navbar-nav side-nav">
@@ -69,15 +69,39 @@
 
         <div id="page-wrapper">
             <div class="row">
-                <div class="col-lg-12">
-                    <h1>Dashboard <small>Statistics and more</small></h1>
+                <div class="col-xs-6 col-sm-3">
+                    <h2 style="margin-top: 0px; color:white;">Dashboard</h2>
+                </div>
+                <div class="col-xs-6" style="color:white; margin-bottom: 10px;">
+    @if (count($companies) > 0)
+    <div class="dropdown mb-2 p-2 rounded" style="display:inline-block;">
+        
+      <button class="btn btn-default dropdown-toggle" style="max-width: 85vw; text-overflow: ellipsis; white-space: nowrap; overflow: hidden;"type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+            {{$companies[0]->name}}
+        <span class="caret"></span>
+      </button>
+      <ul class="dropdown-menu" aria-labelledby="dropdownMenu1" style="max-width: 85vw; text-overflow: ellipsis; white-space: nowrap; overflow: hidden;">
+        @foreach ($companies as $company)
+        <li><button class="btn-link btn text-dark" style="width:100%;" onclick="document.getElementById('dropdownMenu1').innerHTML ='{{$company->name}}'" data-value="action">{{$company->name}}</button></li>
+        @endforeach
+        <li>
+            <a href="/companies/create" class="btn btn-link">Add New Company
+            </a>
+        </li>
+      </ul>
+    </div>
+
+    @else 
+        TODO
+        <div class="text-light">You have no companies yet</div>
+    @endif
                 </div>
             </div>
             <div class="row">
                 <div class="col-md-8">
                     <div class="panel panel-primary">
                         <div class="panel-heading">
-                            <h3 class="panel-title"><i class="fa fa-bar-chart-o"></i> Visits Based on a 10 days data</h3>
+                            <h3 class="panel-title"><i class="fa fa-bar-chart-o"></i> Visits Based on 10 days data</h3>
                         </div>
                         <div class="panel-body">
                             <div id="shieldui-chart1"></div>

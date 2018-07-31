@@ -38,12 +38,16 @@ class CompaniesController extends Controller
         //     'activityName' => 'required|unique:activities,name',
         //     'activityDescription' => 'required',
         // ]);
+
         $company = new \App\Company;
         $company->name = $request->input('companyName');
         $company->owner_id = $request->user()->id;
         $company->save();
-        $request->session()->flash('status', 'Company added!');
 
+        //Update the pivot table as well
+        $company->users()->attach($company->owner_id);
+
+        $request->session()->flash('status', 'Company added!');
         return redirect()->route('home');
     }
 

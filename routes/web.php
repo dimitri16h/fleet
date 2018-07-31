@@ -22,5 +22,6 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::resource('/companies', 'CompaniesController');
 
 Route::get('test', function() {
-	return view('test');
+	$companies = \App\User::where('id', \Auth::user()->id)->first()->companies()->get();
+	return view('test', compact('companies'));
 });

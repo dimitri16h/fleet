@@ -268,7 +268,7 @@ body {
   font-family: "Droid Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 14px;
   line-height: 1.42857143;
-  color: #BDBDBD;
+  /*color: #BDBDBD;*/
   background-color: #060606;
 }
 input,
@@ -280,7 +280,7 @@ textarea {
   line-height: inherit;
 }
 a {
-  color: #405265;
+  color:  #0000EE;
   text-decoration: none;
 }
 a:hover,
@@ -4745,7 +4745,7 @@ a.list-group-item-danger.active:focus {
 }
 .panel {
   margin-bottom: 20px;
-  background-color: #222222;
+  background-color: #D3D0BC;
   border: 1px solid transparent;
   border-radius: 4px;
   -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
@@ -6054,7 +6054,7 @@ table.tablesorter thead tr th:hover {
     vertical-align: bottom;
 }
 .feed-item-body .time {
-    color: #D2D2D2;
+/*    color: #D2D2D2;*/
     font-size: 11.05px;
     line-height: 1.5em;
 }
@@ -6064,7 +6064,7 @@ table.tablesorter thead tr th:hover {
     overflow: hidden;
     position: relative;
     width: auto;
-    color: #F8F8F8;
+    color: black;
 }
 
 .news-list,.server-stats {
