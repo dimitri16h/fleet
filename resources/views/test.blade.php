@@ -69,21 +69,23 @@
 
         <div id="page-wrapper">
             <div class="row">
-                <div class="col-xs-6 col-sm-3">
+                <div class="col-xs-6 col-sm-4 col-md-3 col-lg-2">
                     <h2 style="margin-top: 0px; color:white;">Dashboard</h2>
                 </div>
                 <div class="col-xs-6" style="color:white; margin-bottom: 10px;">
     @if (count($companies) > 0)
-    <div class="dropdown mb-2 p-2 rounded" style="display:inline-block;">
+    <div class="dropdown mb-2 p-2 rounded" style="display:inline-block; width:100%">
         
-      <button class="btn btn-default dropdown-toggle" style="max-width: 85vw; text-overflow: ellipsis; white-space: nowrap; overflow: hidden;"type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+      <button class="btn btn-default dropdown-toggle" style="max-width: 100%;text-overflow: ellipsis; white-space: nowrap; overflow: hidden;" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
             {{$companies[0]->name}}
         <span class="caret"></span>
       </button>
-      <ul class="dropdown-menu" aria-labelledby="dropdownMenu1" style="max-width: 85vw; text-overflow: ellipsis; white-space: nowrap; overflow: hidden;">
+      <ul class="dropdown-menu" aria-labelledby="dropdownMenu1" style="left: -30px;text-overflow: ellipsis; white-space: nowrap; overflow: hidden;">
+        <li class="btn-group">
         @foreach ($companies as $company)
-        <li><button class="btn-link btn text-dark" style="width:100%;" onclick="document.getElementById('dropdownMenu1').innerHTML ='{{$company->name}}'" data-value="action">{{$company->name}}</button></li>
+        <button class="btn-link btn text-dark" style="max-width:100%;" onclick="document.getElementById('dropdownMenu1').innerHTML ='{{$company->name}}'" data-value="action">{{$company->name}}</button>
         @endforeach
+        </li>
         <li>
             <a href="/companies/create" class="btn btn-link">Add New Company
             </a>
