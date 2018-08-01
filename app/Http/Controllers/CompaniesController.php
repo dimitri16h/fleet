@@ -13,7 +13,8 @@ class CompaniesController extends Controller
      */
     public function index()
     {
-        //
+        $companies = \App\Company::where("owner_id", \Auth::user()->id)->get();
+        return view('companies.index', compact('companies'));
     }
 
     /**
@@ -68,9 +69,13 @@ class CompaniesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Request $request, $id)
     {
-        //
+        $company = \App\Company::where('id', $id)->first();
+        if ($company->owner_id == \Auth::user()->id) {
+            return view('companies.edit', compact('company'));
+        }
+        else return ('You didn\'t build that!');
     }
 
     /**
@@ -82,7 +87,14 @@ class CompaniesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $company = \App\Company::where('id', $id)->first();
+        if ($company->owner_id == \Auth::user()->id) {
+            $company->name = $request->namefield;
+            $company->save();
+
+            $request->session()->flash('status', 'Edit Successful!');
+        }
+        return redirect('/companies');
     }
 
     /**

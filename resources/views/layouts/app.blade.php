@@ -23,17 +23,28 @@
     <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,600" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Archivo+Black" rel="stylesheet">
 
-    <!-- Shield UI -->
-    <link rel="stylesheet" type="text/css" href="http://www.shieldui.com/shared/components/latest/css/light-bootstrap/all.min.css" />
-    <link id="gridcss" rel="stylesheet" type="text/css" href="http://www.shieldui.com/shared/components/latest/css/dark-bootstrap/all.min.css" />
-    <script type="text/javascript" src="http://www.shieldui.com/shared/components/latest/js/shieldui-all.min.js"></script>
-    <script type="text/javascript" src="http://www.prepbootstrap.com/Content/js/gridData.js"></script>
-
-    <!-- 
-        Custom Styles -->
+    <!-- Custom Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <style>
+
+/* The sidenav */
+.sidenav {
+  height: 100%;
+  width: 180px;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  overflow-x: hidden;
+  padding-top: 20px;
+}
+
+/* Page content */
+.main {
+  margin-left: 200px; /* Same as the width of the sidenav */
+}
+</style>
 </head>
-<body style="background-color:#191d1d;">
+<body class="bg-6">
 
 
 
@@ -41,7 +52,7 @@
     
 
 
-    <nav class="navbar navbar-expand-md" style="background-color:#405265;">
+    <nav class="navbar navbar-expand-md bg-7">
         @guest
             <a class="navbar-brand" href="/">
         @else
@@ -95,7 +106,24 @@
         </div>
     </nav>
 
-    <main class="py-4">
+
+    <ul class="nav flex-column sidenav bg-7 navbar-dark">
+      <li class="nav-item">
+        <a class="nav-link text-light" href="/home">Dashboard</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link text-light" href="/companies">Companies</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link text-light" href="#">Trucks</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link text-light" href="#">Customers</a>
+      </li>
+    </ul>
+
+
+    <main class="py-4 main">
         @yield('content')
     </main>
 </div>

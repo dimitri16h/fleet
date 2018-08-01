@@ -31,6 +31,7 @@
 
     <!-- Custom Styles -->
     <link href="{{ asset('css/dashboard.css') }}" rel="stylesheet">
+    
 </head>
 <body>
     <div id="app"></div>

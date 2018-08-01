@@ -1,3 +1,8 @@
+$primary: #3f5165;
+$info: #18181e;
+$success: #489356;
+$warning: #c5831e;
+$danger: #f44336;
 
 // Fonts
 @import url("https://fonts.googleapis.com/css?family=Raleway:300,400,600");
@@ -11,4 +16,32 @@
 .navbar-laravel {
   background-color: #fff;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+}
+
+.bg-1 {
+	background-color: #D3D0BC;	
+}
+
+.bg-2 {
+	background-color: #7D9795;
+}
+
+.bg-3 {
+	background-color: #405265;
+}
+
+.bg-4 {
+	background-color: #647A93;
+}
+
+.bg-5 {
+	background-color: #191D1D;
+}
+
+.bg-6 {
+	background-color: #060606;
+}
+
+.bg-7 {
+	background-color: #272727;
 }
