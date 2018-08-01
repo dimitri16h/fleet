@@ -17,12 +17,16 @@
                     {{$company->name}}
                 </div>
                 <div class="col">
-                    <a href="/companies/{{$company->id}}/edit"class="btn btn-primary">
-                        Edit
-                    </a>
-                    <a href="#" class="btn btn-danger">
-                        <i class="fa fa-trash" aria-hidden="true"></i>
-                    </a>
+                    <form action="/companies/{{$company->id}}" method="POST">
+                        @method('DELETE')
+                        @csrf
+                        <a href="/companies/{{$company->id}}/edit"class="btn btn-primary">
+                            <i class="fas fa-pencil-alt"></i>
+                        </a>
+                        <button type="submit" href="#" class="btn btn-danger">
+                            <i class="fa fa-trash" aria-hidden="true"></i>
+                        </button>
+                    </form>
                 </div>
             </div>
             @endforeach

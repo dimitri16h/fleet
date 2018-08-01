@@ -14,7 +14,7 @@
             </div>
             <div class="collapse navbar-collapse navbar-ex1-collapse">
                 <ul id="active" class="nav navbar-nav side-nav">
-                    <li class="selected"><a href="index.html"><i class="fa fa-bullseye"></i> Dashboard</a></li>
+                    <li class="selected"><a href="/home"><i class="fa fa-bullseye"></i> Dashboard</a></li>
                     <li><a href="portfolio.html"><i class="fa fa-truck-moving"></i> Trucks</a></li>
                     <li><a href="blog.html"><i class="fa fa-users"></i> Customers</a></li>
                    <!--  <li>

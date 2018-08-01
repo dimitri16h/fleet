@@ -13,7 +13,7 @@ class CompaniesController extends Controller
      */
     public function index()
     {
-        $companies = \App\Company::where("owner_id", \Auth::user()->id)->get();
+        $companies = \App\Company::where("owner_id", \Auth::user()->id)->orderBy('id')->get();
         return view('companies.index', compact('companies'));
     }
 
@@ -75,7 +75,7 @@ class CompaniesController extends Controller
         if ($company->owner_id == \Auth::user()->id) {
             return view('companies.edit', compact('company'));
         }
-        else return ('You didn\'t build that!');
+        else return redirect('/companies');
     }
 
     /**
@@ -105,6 +105,14 @@ class CompaniesController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $company = \App\Company::find($id);
+        if (\Auth::user()->id == $company->owner_id) {
+
+            //Detach from pivot table
+            $company->users()->detach($company->owner_id);
+
+            $company->delete();
+        }
+        return redirect('/companies');
     }
 }
