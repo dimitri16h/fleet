@@ -12,24 +12,22 @@
                 </button>
                 <a class="navbar-brand" href="index.html">Fleet</a>
             </div>
+
+
+
+
+            <!-- Collapsing parts? -->
             <div class="collapse navbar-collapse navbar-ex1-collapse">
+
+                <!-- Side Nav? -->
                 <ul id="active" class="nav navbar-nav side-nav">
                     <li class="selected"><a href="/home"><i class="fa fa-bullseye"></i> Dashboard</a></li>
-                    <li><a href="portfolio.html"><i class="fa fa-truck-moving"></i> Trucks</a></li>
-                    <li><a href="blog.html"><i class="fa fa-users"></i> Customers</a></li>
-                   <!--  <li>
-                        <a href="signup.html"><i class="fa fa-list-ol"></i> SignUp</a>
-                        <ul>
-                            <li><a href="register.html"><i class="fa fa-font"></i> Register</a></li>
-                        </ul>
-                    </li> -->
-                    <!--<li><a href="register.html"><i class="fa fa-font"></i> Register</a></li>
-                    <li><a href="timeline.html"><i class="fa fa-font"></i> Timeline</a></li>
-                    <li><a href="forms.html"><i class="fa fa-list-ol"></i> Forms</a></li>
-                    <li><a href="typography.html"><i class="fa fa-font"></i> Typography</a></li>
-                    <li><a href="bootstrap-elements.html"><i class="fa fa-list-ul"></i> Bootstrap Elements</a></li>
-                    <li><a href="bootstrap-grid.html"><i class="fa fa-table"></i> Bootstrap Grid</a></li> -->
+                    <li><a href="/trucks"><i class="fa fa-truck-moving"></i> Trucks</a></li>
+                    <li><a href="/customers"><i class="fa fa-users"></i> Customers</a></li>
                 </ul>
+                <!-- end side nav -->
+
+                <!-- Top right nav -->
                 <ul class="nav navbar-nav navbar-right navbar-user">
                     <li class="dropdown messages-dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-envelope"></i> Messages <span class="badge">2</span> <b class="caret"></b></a>
@@ -62,15 +60,12 @@
 
                         </ul>
                     </li>
-                    <!-- <li class="divider-vertical"></li>
-                    <li>
-                        <form class="navbar-search">
-                            <input type="text" placeholder="Search" class="form-control">
-                        </form>
-                    </li> -->
                 </ul>
+                <!-- end top right nav -->
             </div>
+            <!-- end collapsing parts -->
         </nav>
+        <!-- End entire nav section -->
 
         <div id="page-wrapper">
             <div class="row">

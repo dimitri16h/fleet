@@ -106,7 +106,10 @@ class CompaniesController extends Controller
     public function destroy($id)
     {
         $company = \App\Company::find($id);
-        if (\Auth::user()->id == $company->owner_id) {
+
+        // If user is company owner && company has no trucks
+        if ((\Auth::user()->id == $company->owner_id) 
+            && (count($company->trucks()->get()) == 0)) {
 
             //Detach from pivot table
             $company->users()->detach($company->owner_id);

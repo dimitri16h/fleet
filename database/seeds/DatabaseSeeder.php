@@ -89,5 +89,33 @@ class DatabaseSeeder extends Seeder
           'user_id' => 2,
           'is_admin' => 0
         ]);
+
+        DB::table('trucks')->insert([
+          'company_id' => 1,
+          'name' => "Expedit 1",
+          'created_at' => Carbon::now(),
+          'updated_at' => Carbon::now()
+        ]);
+
+        DB::table('trucks')->insert([
+          'company_id' => 1,
+          'name' => "Expedit 2",
+          'created_at' => Carbon::now(),
+          'updated_at' => Carbon::now()
+        ]);
+
+        DB::table('customers')->insert([
+          'company_id' => 1,
+          'name' => "J.B. Hunt",
+          'created_at' => Carbon::now(),
+          'updated_at' => Carbon::now()
+        ]);
+
+        DB::table('customers')->insert([
+          'company_id' => 1,
+          'name' => "C.H. Robinsons",
+          'created_at' => Carbon::now(),
+          'updated_at' => Carbon::now()
+        ]);
     }
 }

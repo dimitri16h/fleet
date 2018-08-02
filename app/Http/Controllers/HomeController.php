@@ -26,7 +26,7 @@ class HomeController extends Controller
         // $user = \App\User::where('id', \Auth::user()->id)->first();
         // $companies = $user->companies()->get();
 
-        $companies = \App\User::where('id', \Auth::user()->id)->first()->companies()->get();
+        $companies = \App\User::where('id', \Auth::user()->id)->first()->companies()->orderBy('id')->get();
                 
         return view('home', compact('companies'));
     }

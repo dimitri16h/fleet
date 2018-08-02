@@ -115,10 +115,10 @@
         <a class="nav-link text-light" href="/companies">Companies</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link text-light" href="#">Trucks</a>
+        <a class="nav-link text-light" href="/trucks">Trucks</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link text-light" href="#">Customers</a>
+        <a class="nav-link text-light" href="/customers">Customers</a>
       </li>
       <li class="nav-item">
         <a class="nav-link text-light" href="/test">Test/Analytics</a>

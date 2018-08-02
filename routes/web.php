@@ -20,6 +20,8 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::resource('/companies', 'CompaniesController');
+Route::resource('/trucks', 'TrucksController');
+Route::resource('/customers', 'CustomersController');
 
 Route::get('test', function() {
 	$companies = \App\User::where('id', \Auth::user()->id)->first()->companies()->get();
