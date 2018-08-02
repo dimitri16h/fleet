@@ -13,7 +13,6 @@ class CreateTrucksTable extends Migration
      */
     public function up()
     {
-        Schema::dropIfExists('trucks');
         Schema::create('trucks', function (Blueprint $table) {
             $table->increments('id');
             $table->unsignedInteger('company_id');
