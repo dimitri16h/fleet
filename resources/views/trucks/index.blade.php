@@ -14,17 +14,17 @@
             <div class="row">
                 @if (count($company->trucks) > 0)
                     @foreach ($company->trucks as $truck)
-                    <div class="col-sm-5 col-md-3 col-lg-2">
+                    <div class="col-5 col-xs-3 col-md-3 col-lg-2">
                         {{$truck->name}}
                     </div>
-                    <div class="col-sm-5 col-md-3 col-lg-2 mb-1">
+                    <div class="col-5 col-xs-3 col-md-3 col-lg-2 mb-1">
                         <form action="/trucks/{{$truck->id}}" method="POST">
                             @method('DELETE')
                             @csrf
-                            <a href="/trucks/{{$truck->id}}/edit"class="btn btn-primary">
+                            <a href="/trucks/{{$truck->id}}/edit"class="btn btn-primary btn-sm">
                                 <i class="fas fa-pencil-alt"></i>
                             </a>
-                            <button type="submit" href="#" class="btn btn-danger">
+                            <button type="submit" href="#" class="btn btn-danger btn-sm">
                                 <i class="fa fa-trash" aria-hidden="true"></i>
                             </button>
                         </form>

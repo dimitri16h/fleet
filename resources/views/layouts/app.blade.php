@@ -27,22 +27,31 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <style>
 
-/* The sidenav */
-.sidenav {
-  height: 100%;
-  width: 180px;
-  position: fixed;
-  z-index: 1;
-  left: 0;
-  overflow-x: hidden;
-  padding-top: 20px;
-}
 
-/* Page content */
-.main {
-  margin-left: 200px; /* Same as the width of the sidenav */
+
+@media only screen and (min-width: 768px) {
+  /* The sidenav */
+  .sidenav {
+    height: 100%;
+    width: 180px;
+    position: fixed;
+    z-index: 1;
+    top: 35px;
+    left: 0;
+    overflow-x: hidden;
+    padding-top: 20px;
+    padding-left:20px;
+  }
+  /* Page content */
+  .main {
+    margin-left: 180px; /* Same as the width of the sidenav */
+  }
+  .sidenav > .nav-item {
+    padding-bottom:20px;
+  }
 }
 </style>
+
 </head>
 <body class="bg-6">
 
@@ -58,7 +67,7 @@
         @else
             <a class="navbar-brand" href="/home">
         @endguest
-                <h3 class="text-light" style="font-family: sans-serif;">{{ config('app.name', 'Laravel') }}</h3>
+                <h5 class="text-light" style="font-family: sans-serif;">{{ config('app.name', 'Fleet') }}</h5>
             </a>
 
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" z-index="9">
@@ -67,7 +76,7 @@
             </span>
         </button>
 
-        <div class="collapse navbar-collapse text-right p-1" id="navbarSupportedContent">
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav ml-auto">
                 @guest
                     <li class="nav-link">
@@ -77,11 +86,12 @@
                         <a href="{{ route('register') }}" class="text-light nav-item">Register</a>
                     </li>
                 @else
-                    <li>
+                    <!-- <li>
                         <a href="{{ url('/home') }}" class="text-light nav-item mr-3">Home</a>
-                    </li>
+                    </li> -->
+                    
                     <li class="nav-item dropdown">
-                        <a id="navbarDropdown" class="nav-link dropdown-toggle pt-0 pb-0 text-light mr-3" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                        <a id="navbarDropdown2" class="nav-link dropdown-toggle pt-0 pb-0 text-light mr-3" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                             {{ Auth::user()->name }} <span class="caret"></span>
                         </a>
 
@@ -97,33 +107,65 @@
                             </form>
                         </div>
                     </li>
+                    <li class="nav-item dropdown">
+                        <a id="navbarDropdown1" class="nav-link dropdown-toggle pt-0 pb-0 text-light mr-3" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                            All Companies 
+                            <span class="caret"></span>
+                        </a>
+
+                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                          <button class="btn-link btn text-dark" style="width:100%;" onclick="document.getElementById('navbarDropdown1').innerHTML ='All Companies '" data-value="action">All Companies</button>
+                            @foreach(\Auth::user()->companies()->orderBy('id')->get() as $company)
+                            <button class="btn-link btn text-dark" style="width:100%;" onclick="document.getElementById('navbarDropdown1').innerHTML ='{{$company->name}} '" data-value="action">{{$company->name}}</button>
+                            @endforeach
+                        </div>
+                    </li>
                 @endguest
 
-             <!--  <li class="nav-link pt-0 pb-0">
-                <a class="nav-item text-light" href="#">Another Link</a>
+            </ul>
+            <ul class="nav flex-column navbar-nav sidenav bg-7 navbar-dark">
+              <li class="nav-item mt-3">
+                <a class="nav-item text-light" href="/home">
+                  <i class="fa fa-bullseye"></i>
+                   Dashboard
+                 </a>
+              </li>
+              <!-- <li class="nav-item">
+                <a class="nav-item text-light" href="/companies">
+                  <i class="fa fa-building"></i> 
+                   Companies
+                </a>
               </li> -->
+              <li class="nav-item">
+                <a class="nav-item text-light" href="/trucks">
+                  <i class="fa fa-truck-moving"></i>
+                   Trucks
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-item text-light" href="/customers">
+                  <i class="fa fa-users"></i>  
+                   Customers
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-item text-light" href="/home">
+                  <i class="fas fa-headset"></i>
+                   Dispatch
+                 </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-item text-light" href="/test">
+                  <i class="fas fa-chart-pie"></i>
+                   Test/Analytics
+                </a>
+              </li>
             </ul>
         </div>
     </nav>
 
 
-    <ul class="nav flex-column sidenav bg-7 navbar-dark">
-      <li class="nav-item">
-        <a class="nav-link text-light" href="/home">Dashboard</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link text-light" href="/companies">Companies</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link text-light" href="/trucks">Trucks</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link text-light" href="/customers">Customers</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link text-light" href="/test">Test/Analytics</a>
-      </li>
-    </ul>
+    
 
 
     <main class="py-4 main">

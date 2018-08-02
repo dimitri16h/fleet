@@ -2,6 +2,11 @@
 
 @section('content')
         <div id="wrapper">
+
+
+
+
+
           <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
@@ -12,9 +17,6 @@
                 </button>
                 <a class="navbar-brand" href="index.html">Fleet</a>
             </div>
-
-
-
 
             <!-- Collapsing parts? -->
             <div class="collapse navbar-collapse navbar-ex1-collapse">
@@ -98,7 +100,7 @@
         <div class="text-light">You have no companies yet</div>
     @endif
                 </div>
-            </div>
+            <!-- </div>
             <div class="row">
                 <div class="col-md-8">
                     <div class="panel panel-primary">
@@ -471,7 +473,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> -->
         </div>
     </div>
     <!-- /#wrapper -->
