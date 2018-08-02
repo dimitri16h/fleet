@@ -31,6 +31,9 @@
             </div>
             @endforeach
         </div>
+        <div class="card-footer bg-1">
+            <a href="/companies/create" class="btn btn-success">Add New Company</a>
+        </div>
     </div>
 
     
