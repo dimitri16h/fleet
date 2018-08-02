@@ -108,16 +108,24 @@
                         </div>
                     </li>
                     <li class="nav-item dropdown">
-                        <a id="navbarDropdown1" class="nav-link dropdown-toggle pt-0 pb-0 text-light mr-3" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                            All Companies 
+                        <a id="navbarDropdown1" class="nav-link dropdown-toggle pt-0 pb-0 text-light mr-3" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                            {{session('active-name', 'All Companies')}}
                             <span class="caret"></span>
                         </a>
 
                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                          <button class="btn-link btn text-dark" style="width:100%;" onclick="document.getElementById('navbarDropdown1').innerHTML ='All Companies '" data-value="action">All Companies</button>
-                            @foreach(\Auth::user()->companies()->orderBy('id')->get() as $company)
-                            <button class="btn-link btn text-dark" style="width:100%;" onclick="document.getElementById('navbarDropdown1').innerHTML ='{{$company->name}} '" data-value="action">{{$company->name}}</button>
-                            @endforeach
+                          <form method="post" action="/set-active">
+                            <input type="hidden" name="active-co" value="">
+                            <button type="submit" class="btn-link btn text-dark w-100">All Companies</button>
+                             {{ csrf_field() }}
+                          </form> 
+                          @foreach(\Auth::user()->companies()->orderBy('id')->get() as $company)
+                          <form method="post" action="/set-active">
+                            <input type="hidden" name="active-co" value="{{$company->id}}">
+                            <button type="submit" class="btn-link btn text-dark w-100">{{$company->name}}</button>
+                             {{ csrf_field() }}
+                          </form>
+                          @endforeach
                         </div>
                     </li>
                 @endguest

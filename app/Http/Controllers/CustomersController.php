@@ -14,7 +14,12 @@ class CustomersController extends Controller
     public function index()
     {
         $user = \App\User::where('id',\Auth::user()->id)->first();
-        $userCompanies = $user->companies()->orderBy('id')->get();
+
+        if(session('active-id')) {
+            $userCompanies = $user->companies()->where('id',session('active-id'))->get();
+        }
+        else {$userCompanies = $user->companies()->orderBy('id')->get();}
+        
         foreach ($userCompanies as $company) {
             $company->customers = $company->customers()->orderBy('id')->get();
         }

@@ -14,11 +14,14 @@ class TrucksController extends Controller
     public function index()
     {   
         $user = \App\User::where('id',\Auth::user()->id)->first();
-        $userCompanies = $user->companies()->orderBy('id')->get();
-        foreach ($userCompanies as $company) {
-            $company->trucks = $company->trucks()->orderBy('id')->get();
+        if(session('active-id')) {
+            $userCompanies = $user->companies()->where('id',session('active-id'))->get();
         }
-        // return($userCompanies);
+        else {$userCompanies = $user->companies()->orderBy('id')->get();}
+        
+        foreach ($userCompanies as $company) {
+            $company->customers = $company->customers()->orderBy('id')->get();
+        }
         return view("trucks.index", compact('userCompanies'));
     }
 

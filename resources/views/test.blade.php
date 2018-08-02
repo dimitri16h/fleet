@@ -100,7 +100,7 @@
         <div class="text-light">You have no companies yet</div>
     @endif
                 </div>
-            <!-- </div>
+            </div>
             <div class="row">
                 <div class="col-md-8">
                     <div class="panel panel-primary">
@@ -473,7 +473,7 @@
                         </div>
                     </div>
                 </div>
-            </div> -->
+            </div>
         </div>
     </div>
     <!-- /#wrapper -->
