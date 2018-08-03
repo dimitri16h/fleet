@@ -21,18 +21,18 @@
             <div class="row">
                 <div class="form-group col-md">
                     <label for="name">Name <small>*required</small></label>
-                    <input class="form-control" id="name" name="name" value="{{$company->name}}">
+                    <input class="form-control" id="name" name="name" value="{{$company->name}}"placeholder="Required">
                 </div>
                 <div class="form-group col-md">
                     <label for="phone">Phone</label>
-                    <input class="form-control" id="phone" name="phone" value="{{$company->phone}}">
+                    <input class="form-control" id="phone" name="phone" value="{{$company->phone}}" placeholder="Ex: 888-888-8888">
                 </div>
             </div>
             <div class="row">
                 <div class="form-group col-md">
                     <label for="address1">Address</label>
-                    <input class="form-control" id="address1" name="address1" value="{{$company->address1}}">
-                    <input class="form-control" id="address2" name="address2" value="{{$company->address2}}">
+                    <input class="form-control" id="address1" name="address1" value="{{$company->address1}}" placeholder="Ex: 123 My Street">
+                    <input class="form-control" id="address2" name="address2" value="{{$company->address2}}" placeholder="Ex: 12345, City, State">
                 </div>
             </div>
       </div>
@@ -43,14 +43,14 @@
           <div class="row">
                 <div class="form-group col-md">
                     <label for="billingName">Name (Billing Purposes)</label>
-                    <input class="form-control" id="billingName" name="billingName" value="{{$company->billing_name}}">
+                    <input class="form-control" id="billingName" name="billingName" value="{{$company->billing_name}}" placeholder= "Ex: My Co LLC">
                 </div>
             </div>
             <div class="row">
                 <div class="form-group col-md">
                     <label for="billingAddress1">Address (Billing Purposes)</label>
-                    <input class="form-control" id="billingAddress1" name="billingAddress1" value="{{$company->billing_address1}}">
-                    <input class="form-control" id="billingAddress2" name="billingAddress2" value="{{$company->billing_address2}}">
+                    <input class="form-control" id="billingAddress1" name="billingAddress1" value="{{$company->billing_address1}}" placeholder="Ex: 123 My Street">
+                    <input class="form-control" id="billingAddress2" name="billingAddress2" value="{{$company->billing_address2}}" placeholder="Ex: 12345, City, State">
                 </div>
             </div>
       </div>
@@ -65,7 +65,7 @@
                 </div>
                 <div class="form-group col-md">
                     <label for="contactPhone">Contact Phone</label>
-                    <input class="form-control" id="contactPhone" name="contactPhone" value="{{$company->contact_phone}}">
+                    <input class="form-control" id="contactPhone" name="contactPhone" value="{{$company->contact_phone}}" placeholder="Ex: 888-888-8888">
                 </div>
             </div>
             <div class="row">
