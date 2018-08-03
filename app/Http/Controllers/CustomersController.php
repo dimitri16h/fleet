@@ -50,7 +50,7 @@ class CustomersController extends Controller
 
         if (\Auth::user()->id == $company->owner_id) {
             $customer = new \App\Customer;
-            $customer->name = $request->input('namefield');
+            $customer->name = $request->input('name');
             $customer->company_id = $company->id;
             $customer->save();
         }

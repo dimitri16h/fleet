@@ -18,6 +18,7 @@ class CreateCustomersTable extends Migration
             $table->unsignedInteger('company_id');
             $table->foreign('company_id')->references('id')->on('companies');
             $table->string('name');
+            $table->string('phone')->nullable();
             $table->string('address1')->nullable();
             $table->string('address2')->nullable();
             $table->string('billing_name')->nullable();

@@ -112,14 +112,14 @@ class DatabaseSeeder extends Seeder
 
         DB::table('customers')->insert([
           'company_id' => 1,
-          'name' => "J.B. Hunt",
+          'name' => "J.B. Hunt Transport, Inc.",
           'created_at' => Carbon::now(),
           'updated_at' => Carbon::now()
         ]);
 
         DB::table('customers')->insert([
           'company_id' => 1,
-          'name' => "C.H. Robinsons",
+          'name' => "XPO Logistics",
           'created_at' => Carbon::now(),
           'updated_at' => Carbon::now()
         ]);

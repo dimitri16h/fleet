@@ -17,7 +17,7 @@ class CreateLoadsTable extends Migration
             $table->increments('id');
             $table->unsignedInteger('company_id');
             $table->foreign('company_id')->references('id')->on('companies');
-            $table->unsignedInteger('customer_id');
+            $table->unsignedInteger('customer_id')->nullable();
             $table->foreign('customer_id')->references('id')->on('customers');
             $table->string('internal_number');
             $table->string('external_number')->nullable();
