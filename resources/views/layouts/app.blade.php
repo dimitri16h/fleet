@@ -58,6 +58,11 @@
     padding-bottom:20px;
   }
 }
+
+.nav-tabs .nav-link.active {
+  background-color: #425066;
+  color: white;
+}
 </style>
 
 </head>
