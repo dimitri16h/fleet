@@ -41,15 +41,24 @@ class CompaniesController extends Controller
         // ]);
 
         $company = new \App\Company;
-        $company->name = $request->input('companyName');
+        $company->name = $request->input('name');
         $company->owner_id = $request->user()->id;
+        $company->phone = $request->input('phone');
+        $company->address1 = $request->input('address1');
+        $company->address2 = $request->input('address2');
+        $company->billing_name = $request->input('billingName');
+        $company->billing_address1 = $request->input('billingAddress1');
+        $company->billing_address2 = $request->input('billingAddress2');
+        $company->contact_name = $request->input('contactName');
+        $company->contact_phone = $request->input('contactPhone');
+        $company->contact_email = $request->input('contactEmail');
         $company->save();
 
         //Update the pivot table as well
         $company->users()->attach($company->owner_id);
 
         $request->session()->flash('status', 'Company added!');
-        return redirect()->route('home');
+        return view('/companies');
     }
 
     /**
@@ -93,7 +102,17 @@ class CompaniesController extends Controller
     {
         $company = \App\Company::where('id', $id)->first();
         if ($company->owner_id == \Auth::user()->id) {
-            $company->name = $request->namefield;
+            $company->name = $request->input('name');
+            $company->owner_id = $request->user()->id;
+            $company->phone = $request->input('phone');
+            $company->address1 = $request->input('address1');
+            $company->address2 = $request->input('address2');
+            $company->billing_name = $request->input('billingName');
+            $company->billing_address1 = $request->input('billingAddress1');
+            $company->billing_address2 = $request->input('billingAddress2');
+            $company->contact_name = $request->input('contactName');
+            $company->contact_phone = $request->input('contactPhone');
+            $company->contact_email = $request->input('contactEmail');
             $company->save();
 
             $request->session()->flash('status', 'Edit Successful!');
