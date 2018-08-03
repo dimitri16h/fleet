@@ -112,7 +112,7 @@ class DatabaseSeeder extends Seeder
 
         DB::table('customers')->insert([
           'company_id' => 1,
-          'name' => "J.B. Hunt Transport, Inc.",
+          'name' => "J.B. Hunt Transport, Inc.", 
           'created_at' => Carbon::now(),
           'updated_at' => Carbon::now()
         ]);
@@ -120,6 +120,15 @@ class DatabaseSeeder extends Seeder
         DB::table('customers')->insert([
           'company_id' => 1,
           'name' => "XPO Logistics",
+          'created_at' => Carbon::now(),
+          'updated_at' => Carbon::now()
+        ]);
+
+        DB::table('customers')->insert([
+          'company_id' => 3,
+          'address1' => '123 Rose St',
+          'address2' => '45454 New York, NY',
+          'name' => "C.H. Robinsons",
           'created_at' => Carbon::now(),
           'updated_at' => Carbon::now()
         ]);

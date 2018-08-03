@@ -59,8 +59,8 @@
 
 
           <div class="card-footer bg-1">
-                <a href="/companies" class="btn btn-danger">Cancel</a>
-                <button href="/companies/{{$customer->id}}/edit" class="btn btn-success">Save</button>
+                <a href="/customers/{{$customer->id}}" class="btn btn-danger">Cancel</a>
+                <button href="/customers/{{$customer->id}}/edit" class="btn btn-success">Save</button>
             </div>
         </div>
     </form>

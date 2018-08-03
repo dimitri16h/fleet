@@ -82,7 +82,7 @@
 
 
           <div class="card-footer bg-1">
-                <a href="/companies" class="btn btn-danger">Cancel</a>
+                <a href="/companies/{{$company->id}}" class="btn btn-danger">Cancel</a>
                 <button href="/companies/{{$company->id}}/edit" class="btn btn-success">Save</button>
             </div>
         </div>

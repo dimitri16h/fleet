@@ -21,6 +21,9 @@
                         <form action="/customers/{{$customer->id}}" method="POST">
                             @method('DELETE')
                             @csrf
+                            <a href="/customers/{{$customer->id}}"class="btn btn-sm btn-success">
+                            <i class="fas fa-eye"></i>
+                            </a>
                             <a href="/customers/{{$customer->id}}/edit"class="btn btn-sm btn-primary">
                                 <i class="fas fa-pencil-alt"></i>
                             </a>

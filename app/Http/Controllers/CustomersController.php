@@ -50,8 +50,14 @@ class CustomersController extends Controller
 
         if (\Auth::user()->id == $company->owner_id) {
             $customer = new \App\Customer;
-            $customer->name = $request->input('name');
             $customer->company_id = $company->id;
+            $customer->name = $request->input('name');
+            $customer->phone = $request->input('phone');
+            $customer->address1 = $request->input('address1');
+            $customer->address2 = $request->input('address2');
+            $customer->billing_name = $request->input('billingName');
+            $customer->billing_address1 = $request->input('billingAddress1');
+            $customer->billing_address2 = $request->input('billingAddress2');
             $customer->save();
         }
         return redirect('/customers');
@@ -65,7 +71,11 @@ class CustomersController extends Controller
      */
     public function show($id)
     {
-        //
+        $customer = \App\Customer::where('id', $id)->first();
+        if ($customer->company()->first()->owner_id == \Auth::user()->id) {
+            return view('customers.show', compact('customer'));
+        }
+        else return redirect('/customers');
     }
 
     /**
@@ -91,7 +101,14 @@ class CustomersController extends Controller
     {
         $customer = \App\Customer::find($id);
         if ($customer->company()->first()->owner_id == \Auth::user()->id) {
-            $customer->name = $request->input('namefield');
+            $customer->company_id = $customer->company()->first()->id;
+            $customer->name = $request->input('name');
+            $customer->phone = $request->input('phone');
+            $customer->address1 = $request->input('address1');
+            $customer->address2 = $request->input('address2');
+            $customer->billing_name = $request->input('billingName');
+            $customer->billing_address1 = $request->input('billingAddress1');
+            $customer->billing_address2 = $request->input('billingAddress2');
             $customer->save();
         }
         return redirect('/customers');
