@@ -20,10 +20,10 @@
                     <form action="/companies/{{$company->id}}" method="POST">
                         @method('DELETE')
                         @csrf
-                        <a href="/companies/{{$company->id}}/edit"class="btn btn-primary">
+                        <a href="/companies/{{$company->id}}/edit"class="btn btn-sm btn-primary">
                             <i class="fas fa-pencil-alt"></i>
                         </a>
-                        <button type="submit" href="#" class="btn btn-danger">
+                        <button type="submit" href="#" class="btn btn-sm btn-danger">
                             <i class="fa fa-trash" aria-hidden="true"></i>
                         </button>
                     </form>

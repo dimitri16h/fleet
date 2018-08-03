@@ -17,4 +17,8 @@ class Company extends Model
     public function customers() {
         return $this->hasMany('App\Customer');
     }
+
+	public function loads() {
+        return $this->hasMany('App\Load');
+    }    
 }

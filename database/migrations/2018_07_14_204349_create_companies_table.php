@@ -17,7 +17,16 @@ class CreateCompaniesTable extends Migration
             $table->increments('id');
             $table->unsignedInteger('owner_id');
             $table->foreign('owner_id')->references('id')->on('users');
-            $table->string('name')->unique();
+            $table->string('name');
+            $table->string('phone')->nullable();
+            $table->string('address1')->nullable();
+            $table->string('address2')->nullable();
+            $table->string('billing_name')->nullable();
+            $table->string('billing_address1')->nullable();
+            $table->string('billing_address2')->nullable();
+            $table->string('contact_name')->nullable();
+            $table->string('contact_email')->nullable();
+            $table->string('contact_phone')->nullable();
             $table->timestamps();
         });
     }

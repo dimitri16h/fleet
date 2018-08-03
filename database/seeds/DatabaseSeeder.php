@@ -39,8 +39,14 @@ class DatabaseSeeder extends Seeder
 
 
         DB::table('companies')->insert([
-          'name' => "Expedit Direct",
+          'name' => "Expedit Direct LLC",
           'owner_id' => 1,
+          'phone' => '7068705200',
+          'address1' => '364 Boiling Springs Drive',
+          'address2' => 'Lexington, KY 40511',
+          'contact_name' => 'Olivia Davis',
+          'contact_email' => 'expeditdirect@gmail.com',
+          'contact_phone' => '7068705200',
           'created_at' => Carbon::now(),
           'updated_at' => Carbon::now()
         ]);

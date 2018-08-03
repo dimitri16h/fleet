@@ -24,6 +24,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::resource('/companies', 'CompaniesController');
 Route::resource('/trucks', 'TrucksController');
 Route::resource('/customers', 'CustomersController');
+Route::resource('/orders', 'LoadsController');
 
 Route::post('/set-active', function(Request $request) {
 	$activeCo = \App\Company::find($request->input('active-co'));
@@ -37,7 +38,7 @@ Route::post('/set-active', function(Request $request) {
 	return back();
 });
 
-Route::get('test', function() {
+Route::get('testold', function() {
 	$companies = \App\User::where('id', \Auth::user()->id)->first()->companies()->get();
 	return view('test', compact('companies'));
 });

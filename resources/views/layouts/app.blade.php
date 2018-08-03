@@ -23,6 +23,14 @@
     <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,600" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Archivo+Black" rel="stylesheet">
 
+
+    <!-- Shield UI -->
+    <link rel="stylesheet" type="text/css" href="https://www.shieldui.com/shared/components/latest/css/light-bootstrap/all.min.css" />
+    <link id="gridcss" rel="stylesheet" type="text/css" href="https://www.shieldui.com/shared/components/latest/css/dark-bootstrap/all.min.css" />
+    <script type="text/javascript" src="https://www.shieldui.com/shared/components/latest/js/shieldui-all.min.js"></script>
+    <script type="text/javascript" src="https://www.prepbootstrap.com/Content/js/gridData.js"></script>
+
+
     <!-- Custom Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <style>
@@ -61,7 +69,7 @@
     
 
 
-    <nav class="navbar navbar-expand-md bg-7">
+    <nav class="navbar navbar-expand-md bg-7 fixed-top">
         @guest
             <a class="navbar-brand" href="/">
         @else
@@ -161,17 +169,17 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-item text-light" href="/home">
+                <a class="nav-item text-light" href="/orders">
                   <i class="fas fa-headset"></i>
                    Dispatch
                  </a>
               </li>
-              <li class="nav-item">
-                <a class="nav-item text-light" href="/test">
+<!--               <li class="nav-item">
+                <a class="nav-item text-light" href="/testold">
                   <i class="fas fa-chart-pie"></i>
-                   Test/Analytics
+                   Original Test
                 </a>
-              </li>
+              </li> -->
             </ul>
         </div>
     </nav>
@@ -180,7 +188,7 @@
     
 
 
-    <main class="py-4 main">
+    <main class="py-4 main" style="margin-top:56px;">
         @yield('content')
     </main>
 </div>

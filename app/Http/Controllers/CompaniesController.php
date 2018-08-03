@@ -60,7 +60,11 @@ class CompaniesController extends Controller
      */
     public function show($id)
     {
-        //
+        $company = \App\Company::where('id', $id)->first();
+        if ($company->owner_id == \Auth::user()->id) {
+            return view('companies.show', compact('company'));
+        }
+        else return redirect('/companies');
     }
 
     /**
