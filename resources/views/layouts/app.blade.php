@@ -148,6 +148,9 @@
                 @endguest
 
             </ul>
+            @guest
+
+            @else
             <ul class="nav flex-column navbar-nav sidenav bg-7 navbar-dark">
               <li class="nav-item mt-3">
                 <a class="nav-item text-light" href="/home">
@@ -186,14 +189,20 @@
                 </a>
               </li> -->
             </ul>
+            @endguest
         </div>
     </nav>
 
 
     
+    @guest
+    <main class="py-4" style="margin-top:56px;">
 
+    @else
 
     <main class="py-4 main" style="margin-top:56px;">
+
+    @endguest
         @yield('content')
     </main>
 </div>
