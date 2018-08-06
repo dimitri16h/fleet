@@ -1,17 +1,14 @@
-@extends('layouts.app')
-
-@section('content')
-
-<div class="container" style="height:80vh;">
+<template>
+        <div class="container" style="height:80vh;">
     
-    <h2 class="text-light mb-0">{{$company->name}}</h2>
-    <h4 class="text-light mb-0 pb-0">New Customer Form</h4>
+    <h2 class="text-light mb-3">{{$company->name}}</h2>
+    <h4 class="text-light mb-3">New Order Form</h4>
 
-    <form method="post" action="/customers">
+    <form method="post" action="/orders">
     @csrf
         <input type="hidden" name="companyid" value="{{$company->id}}">
 
-        <ul class="nav nav-tabs bg-1" id="myTab" role="tablist">
+        <ul class="nav nav-tabs mt-5 bg-1" id="myTab" role="tablist">
           <li class="nav-item">
             <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Basic Info</a>
           </li>
@@ -23,19 +20,27 @@
           <div class="tab-pane fade show active card-body" id="home" role="tabpanel" aria-labelledby="home-tab">
                 <div class="row">
                     <div class="form-group col-md">
-                        <label for="name">Name <small> required</small></label>
-                        <input class="form-control" id="name" name="name" placeholder="Required">
+                        <label for="orderNum">Order # <small> required</small></label>
+                        <input class="form-control" id="orderNum" name="orderNum" placeholder="Required">
                     </div>
                     <div class="form-group col-md">
-                        <label for="phone">Phone</label>
-                        <input class="form-control" id="phone" name="phone" placeholder="Ex: 888-888-8888">
+                        <label for="external">External Order #</label>
+                        <input class="form-control" id="external" name="external" placeholder="Ex: Broker Order #">
                     </div>
                 </div>
                 <div class="row">
                     <div class="form-group col-md">
-                        <label for="address1">Address</label>
-                        <input class="form-control" id="address1" name="address1" placeholder="Ex: 123 My Street">
-                        <input class="form-control" id="address2" name="address2" placeholder="Ex: 12345, City, State">
+                        <label for="customer">Customer</label>
+                        <select class="form-control" id="customer" name="customer">
+                            <option>Select from Current</option>
+                            @foreach ($company->customers()->orderBy('id')->get() as $customer)
+                            <option>{{$customer->name}}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                    <div class="col-md">
+                        <label for="newCustomer">New Customer</label><br/>
+                        <button type="button" id="newCustomer" class="btn btn-primary">Create New Customer</button>
                     </div>
                 </div>
           </div>
@@ -65,4 +70,13 @@
             </div>
         </div>
     </form>
-@endsection
+    </div>
+</template>
+
+<script>
+    export default {
+        mounted() {
+            console.log('Component mounted.')
+        }
+    }
+</script>

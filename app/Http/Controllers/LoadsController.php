@@ -31,9 +31,11 @@ class LoadsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        //
+        $companyid = $request->input('companyid');
+        $company = \App\Company::where('id', $companyid)->first();
+        return view('loads.create',compact('company'));
     }
 
     /**
@@ -44,7 +46,28 @@ class LoadsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $company = \App\Company::where('id',$request->input('companyid'))->first();
+        $customerName = $request->input('customer');
+        if ($customerName != "Select from Current...") {
+            $customer = $company->customers()->where('name', $customerName)->first();
+            $customerId = $customer->id;
+        }
+        else $customerId = null;
+
+        if (\Auth::user()->id == $company->owner_id) {
+            $load = new \App\Load;
+            $load->company_id = $company->id;
+            $load->customer_id = $customerId;
+            $load->internal_number = $request->input('orderNum');
+            if ($request->input('external')) $load->external_number = $request->input('external');
+            if ($request->input('pickup1')) $load->pickup_address1 = $request->input('pickup1');
+            if ($request->input('pickup2')) $load->pickup_address2 = $request->input('pickup2');
+            if ($request->input('dropoff1')) $load->dropoff_address1 = $request->input('dropoff1');
+            if ($request->input('dropoff2')) $load->dropoff_address2 = $request->input('dropoff2');
+            if ($request->input('rate')) $load->rate = $request->input('rate');
+            $load->save();
+        }
+        return redirect('/orders');
     }
 
     /**
@@ -66,7 +89,14 @@ class LoadsController extends Controller
      */
     public function edit($id)
     {
-        //
+        $load = \App\Load::find($id);
+        $company = $load->company()->first();
+        $customer = \App\Customer::find($load->customer_id);
+        if ($customer) {
+            $customerName = $customer->name;
+        }
+        else $customerName = "Select One:";
+        return view('loads.edit', compact('load', 'company', 'customerName'));
     }
 
     /**

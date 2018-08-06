@@ -24,6 +24,10 @@ class CreateLoadsTable extends Migration
             $table->string('description')->nullable();            
             $table->date('bill_date')->nullable();
             $table->date('due_date')->nullable();
+            $table->string('pickup_address1')->nullable();
+            $table->string('pickup_address2')->nullable();
+            $table->string('dropoff_address1')->nullable();
+            $table->string('dropoff_address2')->nullable();
             //storing rate and total in cents as int and dividing/multiplying by 100 when showing
             $table->integer('rate')->nullable();
             $table->integer('total')->nullable();

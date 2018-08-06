@@ -14,19 +14,28 @@
             <div class="row">
                 @if (count($company->loads) > 0)
                     @foreach ($company->loads as $load)
-                    <div class="col-5 col-xs-3 col-md-3 col-lg-2">
-                        {{$load->name}}
+                    <div class="col-sm-5 col-md-2 col-lg-2">
+                        Load #{{$load->internal_number}}
                     </div>
-                    <div class="col-5 col-xs-3 col-md-3 col-lg-2 mb-1">
-                        <form action="/loads/{{$load->id}}" method="POST">
+                    <!-- <div class="col-sm-5 col-md-6 col-lg-2 mb-1">
+                        
+                    </div> -->
+                    <div class="col-sm-5 col-md-4 col-lg-2 mb-1">
+                        <form action="/orders/{{$load->id}}" method="POST">
                             @method('DELETE')
                             @csrf
-                            <a href="/loads/{{$load->id}}/edit"class="btn btn-primary btn-sm">
+                            <a href="/orders/{{$load->id}}"class="btn btn-sm btn-success">
+                                <i class="fas fa-eye"></i>
+                            </a>
+                            <a href="/orders/{{$load->id}}/edit"class="btn btn-primary btn-sm">
                                 <i class="fas fa-pencil-alt"></i>
                             </a>
                             <button type="submit" href="#" class="btn btn-danger btn-sm">
                                 <i class="fa fa-trash" aria-hidden="true"></i>
                             </button>
+                            <a href="" class="btn btn-sm btn-warning"> Invoice
+                                <i class="fas fa-print"></i>
+                            </a>
                         </form>
                     </div>
                     @endforeach
@@ -34,7 +43,7 @@
             </div>
         </div>
         <div class="card-footer bg-1">
-            <form action="/loads/create" method="get">
+            <form action="/orders/create" method="get">
                 <input type="hidden" name="companyid" value="{{$company->id}}">
                 <button type="submit" class="btn btn-success">
                     Add New Order

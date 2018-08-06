@@ -8,7 +8,9 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>{{ config('app.name', 'Fleet') }}</title>
+    <link rel="shortcut icon" type="image/png" href="{{ asset('favicon.png') }}"/>
+
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
@@ -196,11 +198,11 @@
 
     
     @guest
-    <main class="py-4" style="margin-top:56px;">
+    <main class="py-4" style="margin-top:42px;">
 
     @else
 
-    <main class="py-4 main" style="margin-top:56px;">
+    <main class="py-4 main" style="margin-top:42px;">
 
     @endguest
         @yield('content')

@@ -3,10 +3,10 @@
 @section('content')
 <div class="container" style="height:80vh;">
 
-    <h2 class="text-light mb-3">Create New Company</h2>
+    <h3 class="text-light mb-3">Create New Company</h3>
     <form method="post" action="/companies">
 
-        <ul class="nav nav-tabs mt-5 bg-1" id="myTab" role="tablist">
+        <ul class="nav nav-tabs bg-1" id="myTab" role="tablist">
           <li class="nav-item">
             <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Basic Info</a>
           </li>

@@ -6,7 +6,7 @@
     <h2 class="text-light mb-3">{{$customer->company()->first()->name}}</h2>
     <h4 class="text-light mb-3">Customer: {{$customer->name}}</h4>
 
-    <ul class="nav nav-tabs mt-5 bg-1" id="myTab" role="tablist">
+    <ul class="nav nav-tabs bg-1" id="myTab" role="tablist">
       <li class="nav-item">
         <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Basic Info</a>
       </li>
