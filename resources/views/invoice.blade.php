@@ -33,28 +33,17 @@
     <style>
     @media only print {
       @page { margin: 0; }
-      body { margin: 2cm; }
-    }
-    @media only screen {
-        body {margin: 30px;}
+      body { margin: 2cm; margin-top: 4cm;}
     }
 
     .tablehead {
         border: black solid 2px;
     }
-    
-    .mytable {
-        border: 1px black solid;
-        border-top: none;
-    }
-
     .mytable > div{
-        border-left: 1px black solid;
-        border-right: 1px black solid;
         height: 30vh;
     }
     .mytablefoottop {
-        border-top: 1px solid black;
+        border-top: 2px solid black;
         border-left: 2px black solid;
         border-right: 2px black solid;
     }
@@ -63,10 +52,16 @@
         border-right: 2px black solid;
         border-bottom: 2px black solid;
     }
+    .bordl {
+        border-left: 2px black solid;
+    }
+    .bordr {
+        border-right: 2px black solid;
+    }
     </style>
 
 <div class="container" id="app">
-    <div id="header" class="row mt-5">
+    <div id="header" class="row mt-3">
         <div id="header-left" class="col">
             <h2>{{$company->name}}</h2>
             @if ($company->address1 && $company->address2)
@@ -113,7 +108,7 @@
         </div>
     </div>
 
-    <div class="row text-center tablehead mt-5">
+    <div class="row text-center tablehead mt-5 bg-light">
         <div class="col-3">
             Invoice
         </div>
@@ -126,17 +121,17 @@
     </div>
 
     <div class="row text-center mytable">
-        <div class="col-3 pt-2">
+        <div class="col-3 pt-2 bordl">
             {{$load->internal_number}}
         </div>
-        <div class="col-6 pt-2">
+        <div class="col-6 pt-2 bordl bordr">
             @if ($load->description)
                 {{$load->description}}
             @else
                 None
             @endif
         </div>
-        <div class="col-3 pt-2">
+        <div class="col-3 pt-2 bordr">
             @if($load->rate)
                 <td>${{number_format((float)$load->rate/100, 2, '.', '')}}</td>
             @endif
@@ -160,6 +155,53 @@
         </div>
         <div class="col-3 text-right pr-2">
             {{now()->addDays(15)->format('m/d/Y')}}
+        </div>
+    </div>
+
+    <div class="row mt-2">
+        <div class="col-6" style="font-size:.8rem;">
+        @if ($company->contact_phone || $company->contact_email || $company->phone)
+            <strong>Direct All Inquiries To:</strong>
+            <br/>
+            @if ($company->contact_name)
+                {{$company->contact_name}}
+            @else 
+                {{$company->name}}
+            @endif
+            <br/>
+            @if ($company->contact_phone)
+                {{$company->contact_phone}}
+            @elseif ($company->phone)
+                {{$company->phone}}
+            @endif
+            <br/>
+            @if ($company->contact_email)
+                {{$company->contact_email}}
+            @endif
+        @endif
+        </div>
+        <div class="col-3">
+        </div>
+        <div class="col-3 text-left" style="font-size:.8rem;">
+            <div class="text-center">
+                <strong>Remit To:</strong><br/>
+            </div>
+            @if ($company->billing_name) 
+                {{$company->billing_name}}
+            @else 
+                {{$company->name}}
+            @endif
+            <br/>
+            @if ($company->billing_address1 && $company->billing_address2)
+                {{$company->billing_address1}}<br/>{{$company->billing_address2}}
+            @elseif ($company->address1 && $company->address2)
+                {{$company->address1}}<br/>{{$company->address2}}
+            @endif
+        </div>
+    </div>
+    <div class="row mt-5">
+        <div class="col text-center font-weight-bold font-italic">
+            Thank You For Your Business
         </div>
     </div>
 

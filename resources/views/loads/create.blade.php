@@ -60,7 +60,7 @@
                             <div class="input-group-prepend">
                                 <div class="input-group-text">$</div>
                             </div>
-                            <input type="number" step="" class="form-control" id="rate" name="rate" placeholder="0.00" autocomplete="false">
+                            <input type="number" step=".01" class="form-control" id="rate" name="rate" placeholder="0.00" autocomplete="false">
                         </div>
                     </div>
                     <div class="col-md">

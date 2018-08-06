@@ -49,7 +49,7 @@ Route::get('/invoice', function(Request $request) {
 		$formattedPickup = preg_replace('/\d/', '', $load->pickup_address2);
 		$formattedPickup = rtrim($formattedPickup, ', ');
 		$formattedDropoff = preg_replace('/\d/', '', $load->dropoff_address2);
-		$formattedDropoff = rtrim($formattedPickup, ', ');
+		$formattedDropoff = rtrim($formattedDropoff, ', ');
 		$description = $formattedPickup . ' to ' . $formattedDropoff;
 		$load->description = $description;
 	}
