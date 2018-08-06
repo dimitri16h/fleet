@@ -37,3 +37,26 @@ Route::post('/set-active', function(Request $request) {
 	session(['active-id' => $activeCo->id]);
 	return back();
 });
+
+Route::get('/invoice', function(Request $request) {
+	$load = \App\Load::find($request->input('load_id'));
+	$company = $load->company()->first();
+	if ($load->customer_id) {
+		$customer = \App\Customer::find($load->customer_id);
+	}
+	else $customer = new \App\Customer;
+	if (!$load->description && $load->pickup_address2 && $load->dropoff_address2) {
+		$formattedPickup = preg_replace('/\d/', '', $load->pickup_address2);
+		$formattedPickup = rtrim($formattedPickup, ', ');
+		$formattedDropoff = preg_replace('/\d/', '', $load->dropoff_address2);
+		$formattedDropoff = rtrim($formattedPickup, ', ');
+		$description = $formattedPickup . ' to ' . $formattedDropoff;
+		$load->description = $description;
+	}
+	if (!$load->total) $load->total = $load->rate;
+	
+	if ($company->owner_id == \Auth::user()->id) {
+		return view('invoice', compact('load', 'company', 'customer'));
+	}
+	else return back();
+});

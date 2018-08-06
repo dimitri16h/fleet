@@ -14,14 +14,14 @@
             <div class="row">
                 @if (count($company->loads) > 0)
                     @foreach ($company->loads as $load)
-                    <div class="col-sm-5 col-md-2 col-lg-2">
+                    <div class="col-sm-5 col-md-2">
                         Load #{{$load->internal_number}}
                     </div>
                     <!-- <div class="col-sm-5 col-md-6 col-lg-2 mb-1">
                         
                     </div> -->
-                    <div class="col-sm-5 col-md-4 col-lg-2 mb-1">
-                        <form action="/orders/{{$load->id}}" method="POST">
+                    <div class="col-sm-5 col-md-4 mb-1">
+                        <form action="/orders/{{$load->id}}" method="POST" class="d-inline">
                             @method('DELETE')
                             @csrf
                             <a href="/orders/{{$load->id}}"class="btn btn-sm btn-success">
@@ -33,10 +33,13 @@
                             <button type="submit" href="#" class="btn btn-danger btn-sm">
                                 <i class="fa fa-trash" aria-hidden="true"></i>
                             </button>
-                            <a href="" class="btn btn-sm btn-warning"> Invoice
-                                <i class="fas fa-print"></i>
-                            </a>
                         </form>
+                        <form method="get" action="/invoice" target="_blank" class="d-inline">
+                            <input type="hidden" name="load_id" value="{{$load->id}}">
+                            <button class="btn btn-sm btn-warning"> Invoice
+                                <i class="fas fa-print"></i>
+                            </button>
+                        </form>                        
                     </div>
                     @endforeach
                 @endif
