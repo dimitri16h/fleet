@@ -36,7 +36,7 @@
                     <div class="form-group col-md">
                         <label for="address1">Address</label>
                         <input class="form-control" id="address1" name="address1" value="{{$company->address1}}" placeholder="Ex: 123 My Street">
-                        <input class="form-control" id="address2" name="address2" value="{{$company->address2}}" placeholder="Ex: 12345, City, State">
+                        <input class="form-control" id="address2" name="address2" value="{{$company->address2}}" placeholder="Ex: City, State, 12345">
                     </div>
                 </div>
           </div>
@@ -54,7 +54,7 @@
                     <div class="form-group col-md">
                         <label for="billingAddress1">Address (Billing Purposes)</label>
                         <input class="form-control" id="billingAddress1" name="billingAddress1" value="{{$company->billing_address1}}" placeholder="Ex: 123 My Street">
-                        <input class="form-control" id="billingAddress2" name="billingAddress2" value="{{$company->billing_address2}}" placeholder="Ex: 12345, City, State">
+                        <input class="form-control" id="billingAddress2" name="billingAddress2" value="{{$company->billing_address2}}" placeholder="Ex: City, State, 12345">
                     </div>
                 </div>
           </div>

@@ -37,8 +37,3 @@ Route::post('/set-active', function(Request $request) {
 	session(['active-id' => $activeCo->id]);
 	return back();
 });
-
-Route::get('testold', function() {
-	$companies = \App\User::where('id', \Auth::user()->id)->first()->companies()->get();
-	return view('test', compact('companies'));
-});

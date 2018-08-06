@@ -5,7 +5,8 @@
     
     <h2 class="text-light mb-3">{{$company->name}}</h2>
 
-    <form method="post" action="/orders" class="card">
+    <form method="post" action="/orders/{{$load->id}}" class="card">
+    @method('PUT')
     @csrf
         <input type="hidden" name="companyid" value="{{$company->id}}">
             <div class="card-header bg-3 text-light text-center">
@@ -41,22 +42,22 @@
                     <div class="form-group col-md">
                         <label for="pickupAddress1">Pickup Address</label>
                         <input class="form-control" id="pickup1" name="pickup1" placeholder="Ex: 3200 Factory Ln" value="{{$load->pickup_address1}}">
-                        <input class="form-control" id="pickup2" name="pickup2" placeholder="Ex: 40513, City, State" value="{{$load->pickup_address2}}">
+                        <input class="form-control" id="pickup2" name="pickup2" placeholder="Ex: City, State, 40512" value="{{$load->pickup_address2}}">
                     </div>
                     <div class="form-group col-md">
                         <label for="dropoff1">Dropoff Address</label>
                         <input class="form-control" id="dropoff1" name="dropoff1" placeholder="Ex: 8500 Industry Rd" value="{{$load->dropoff_address1}}">
-                        <input class="form-control" id="dropoff2" name="dropoff2" placeholder="Ex: 90210, City, State" value="{{$load->dropoff_address2}}">
+                        <input class="form-control" id="dropoff2" name="dropoff2" placeholder="Ex: City, State, 90210" value="{{$load->dropoff_address2}}">
                     </div>
                 </div>
                 <div class="row">
                     <div class="form-group col-md">
-                        <label for="customer">Agreed Rate</label>
+                        <label for="rate">Agreed Rate</label>
                         <div class="input-group">
                             <div class="input-group-prepend">
                                 <div class="input-group-text">$</div>
                             </div>
-                            <input type="number" step="" class="form-control" id="rate" name="rate" placeholder="0.00" value="{{$load->rate}}">
+                            <input type="number" step=".01" class="form-control" id="rate" name="rate" placeholder="0.00" value="{{$load->rate/100}}">
                         </div>
                     </div>
                     <div class="col-md">

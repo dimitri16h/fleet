@@ -6,6 +6,20 @@ use Illuminate\Http\Request;
 
 class LoadsController extends Controller
 {
+
+
+
+    /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
+    
     /**
      * Display a listing of the resource.
      *
@@ -64,7 +78,7 @@ class LoadsController extends Controller
             if ($request->input('pickup2')) $load->pickup_address2 = $request->input('pickup2');
             if ($request->input('dropoff1')) $load->dropoff_address1 = $request->input('dropoff1');
             if ($request->input('dropoff2')) $load->dropoff_address2 = $request->input('dropoff2');
-            if ($request->input('rate')) $load->rate = $request->input('rate');
+            if ($request->input('rate')) $load->rate = ($request->input('rate'))*100;
             $load->save();
         }
         return redirect('/orders');
@@ -78,7 +92,13 @@ class LoadsController extends Controller
      */
     public function show($id)
     {
-        //
+        $load = \App\Load::find($id);
+        $company = \App\Company::find($load->company_id);
+        $customer = \App\Customer::find($load->customer_id);
+        if ($load->company()->first()->owner_id == \Auth::user()->id) {
+            return view('loads.show', compact('load', 'company', 'customer'));
+        }
+        else return redirect('/orders');
     }
 
     /**
@@ -108,7 +128,19 @@ class LoadsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $load = \App\Load::find($id);
+        if ($load->company()->first()->owner_id == \Auth::user()->id) {
+            $load->company_id = $load->company()->first()->id;
+            $load->internal_number = $request->input('orderNum');
+            if ($request->input('external')) $load->external_number = $request->input('external');
+            if ($request->input('pickup1')) $load->pickup_address1 = $request->input('pickup1');
+            if ($request->input('pickup2')) $load->pickup_address2 = $request->input('pickup2');
+            if ($request->input('dropoff1')) $load->dropoff_address1 = $request->input('dropoff1');
+            if ($request->input('dropoff2')) $load->dropoff_address2 = $request->input('dropoff2');
+            if ($request->input('rate')) $load->rate = ($request->input('rate'))*100;
+            $load->save();
+        }
+        return redirect('/orders');
     }
 
     /**
@@ -119,6 +151,12 @@ class LoadsController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $load = \App\Load::find($id);
+        $company = $load->company()->first();
+        if (\Auth::user()->id == $company->owner_id) {
+
+            $load->delete();
+        }
+        return redirect('/orders');
     }
 }

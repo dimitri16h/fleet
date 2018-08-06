@@ -45,12 +45,12 @@
                     <div class="form-group col-md">
                         <div for="pickup1">Pickup Address</div>
                         <input class="form-control" id="pickup1" name="pickup1" placeholder="Ex: 3200 Factory Ln" autocomplete="false">
-                        <input class="form-control" id="pickup2" name="pickup2" placeholder="Ex: 40513, City, State" autocomplete="false">
+                        <input class="form-control" id="pickup2" name="pickup2" placeholder="Ex: City, State, 40513" autocomplete="false">
                     </div>
                     <div class="form-group col-md">
                         <div for="dropoff1">Dropoff Address</div>
                         <input class="form-control" id="dropoff1" name="dropoff1" placeholder="Ex: 8500 Industry Rd" autocomplete="false">
-                        <input class="form-control" id="dropoff2" name="dropoff2" placeholder="Ex: 90210, City, State" autocomplete="false">
+                        <input class="form-control" id="dropoff2" name="dropoff2" placeholder="Ex: City, State, 90210" autocomplete="false">
                     </div>
                 </div>
                 <div class="row">
