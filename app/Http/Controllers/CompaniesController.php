@@ -71,7 +71,7 @@ class CompaniesController extends Controller
         $company->users()->attach($company->owner_id);
 
         $request->session()->flash('status', 'Company added!');
-        return view('/companies');
+        return redirect('/companies');
     }
 
     /**
