@@ -65,10 +65,14 @@
   background-color: #425066;
   color: white;
 }
+
+.iconwidth {
+  width: 20px;
+}
 </style>
 
 </head>
-<body class="bg-6">
+<body class="bg-5">
 
 
 
@@ -112,7 +116,7 @@
 
                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                           <a class="dropdown-item" href="/companies">
-                            Companies
+                            My Companies
                           </a>
 
                           <a class="dropdown-item" href="{{ route('logout') }}"
@@ -156,7 +160,7 @@
             <ul class="nav flex-column navbar-nav sidenav bg-7 navbar-dark">
               <li class="nav-item mt-3">
                 <a class="nav-item text-light" href="/home">
-                  <i class="fa fa-bullseye"></i>
+                  <i class="fa fa-bullseye iconwidth"></i>
                    Dashboard
                  </a>
               </li>
@@ -168,28 +172,22 @@
               </li> -->
               <li class="nav-item">
                 <a class="nav-item text-light" href="/trucks">
-                  <i class="fa fa-truck-moving"></i>
+                  <i class="fa fa-truck-moving iconwidth"></i>
                    Trucks
                 </a>
               </li>
               <li class="nav-item">
                 <a class="nav-item text-light" href="/customers">
-                  <i class="fa fa-users"></i>  
+                  <i class="fa fa-users iconwidth"></i>  
                    Customers
                 </a>
               </li>
               <li class="nav-item">
                 <a class="nav-item text-light" href="/orders">
-                  <i class="fas fa-headset"></i>
+                  <i class="fas fa-headset iconwidth"></i>
                    Dispatch
                  </a>
               </li>
-<!--               <li class="nav-item">
-                <a class="nav-item text-light" href="/testold">
-                  <i class="fas fa-chart-pie"></i>
-                   Original Test
-                </a>
-              </li> -->
             </ul>
             @endguest
         </div>
