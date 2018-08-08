@@ -52,14 +52,14 @@ class DatabaseSeeder extends Seeder
         ]);
 
         DB::table('companies')->insert([
-          'name' => "Truckin.com",
+          'name' => "DirectSell.com",
           'owner_id' => 1,
           'created_at' => Carbon::now(),
           'updated_at' => Carbon::now()
         ]);
 
         DB::table('companies')->insert([
-          'name' => "Haulers",
+          'name' => "My Freight Company",
           'owner_id' => 1,
           'created_at' => Carbon::now(),
           'updated_at' => Carbon::now()
@@ -126,6 +126,14 @@ class DatabaseSeeder extends Seeder
 
         DB::table('customers')->insert([
           'company_id' => 3,
+          'name' => "J.D. Smith Transport, Inc.",
+          'phone' => "(859) 888-7170",
+          'created_at' => Carbon::now(),
+          'updated_at' => Carbon::now()
+        ]);
+
+        DB::table('customers')->insert([
+          'company_id' => 3,
           'address1' => '123 Rose St',
           'address2' => '45454 New York, NY',
           'name' => "C.H. Robinsons",
@@ -157,6 +165,20 @@ class DatabaseSeeder extends Seeder
           'dropoff_address1' => '123 Laneway Drive',
           'dropoff_address2' => 'Uxbridge, MA, 88663',
           'rate' => 175000,
+          'created_at' => Carbon::now(),
+          'updated_at' => Carbon::now()
+        ]);
+
+        DB::table('loads')->insert([
+          'company_id' => 3,
+          'customer_id' => 3,
+          'internal_number' => '602513',
+          'external_number' => "MM24175",
+          'pickup_address1' => '1500 Trent Blvd',
+          'pickup_address2' => 'Lexington, KY, 40515',
+          'dropoff_address1' => '1600 Pennsylvania Avenue',
+          'dropoff_address2' => 'Washington, DC, 20500',
+          'rate' => 220000,
           'created_at' => Carbon::now(),
           'updated_at' => Carbon::now()
         ]);
