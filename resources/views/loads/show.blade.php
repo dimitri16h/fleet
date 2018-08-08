@@ -99,12 +99,12 @@
                         <div for="description">Description</div>
                         <div class="form-control" id="description">
                             @if ($load->description)
-                                {{$load->description}}
-                            @elseif ($load->pickup_address2 && $load-> dropoff_address2)
-                                {{$load->pickup_address2}} to {{$load->dropoff_address2}}
+                                {{$load->description}} 
+                            @elseif (!$load->description && $load->pickup_address2 && $load->dropoff_address2)
+                                {{$load->tempdescription}}
                                 <span class="float-right">
                                     (default)
-                                </span>   
+                                </span>  
                             @else
                                 None                             
                             @endif

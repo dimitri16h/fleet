@@ -95,6 +95,14 @@ class LoadsController extends Controller
         $load = \App\Load::find($id);
         $company = \App\Company::find($load->company_id);
         $customer = \App\Customer::find($load->customer_id);
+        if (!$load->description && $load->pickup_address2 && $load->dropoff_address2) {
+            $formattedPickup = preg_replace('/\d/', '', $load->pickup_address2);
+            $formattedPickup = rtrim($formattedPickup, ', ');
+            $formattedDropoff = preg_replace('/\d/', '', $load->dropoff_address2);
+            $formattedDropoff = rtrim($formattedDropoff, ', ');
+            $description = $formattedPickup . ' to ' . $formattedDropoff;
+            $load->tempdescription = $description;
+        }
         if ($load->company()->first()->owner_id == \Auth::user()->id) {
             return view('loads.show', compact('load', 'company', 'customer'));
         }
@@ -139,13 +147,13 @@ class LoadsController extends Controller
             $load->company_id = $load->company()->first()->id;
             $load->customer_id = $customerId;
             $load->internal_number = $request->input('orderNum');
-            if ($request->input('external')) $load->external_number = $request->input('external');
-            if ($request->input('pickup1')) $load->pickup_address1 = $request->input('pickup1');
-            if ($request->input('pickup2')) $load->pickup_address2 = $request->input('pickup2');
-            if ($request->input('dropoff1')) $load->dropoff_address1 = $request->input('dropoff1');
-            if ($request->input('dropoff2')) $load->dropoff_address2 = $request->input('dropoff2');
-            if ($request->input('rate')) $load->rate = ($request->input('rate'))*100;
-            if ($request->input('description')) $load->description = ($request->input('description'));
+            $load->external_number = $request->input('external');
+            $load->pickup_address1 = $request->input('pickup1');
+            $load->pickup_address2 = $request->input('pickup2');
+            $load->dropoff_address1 = $request->input('dropoff1');
+            $load->dropoff_address2 = $request->input('dropoff2');
+            $load->rate = ($request->input('rate'))*100;
+            $load->description = ($request->input('description'));
             $load->save();
         }
         return redirect('/orders');
