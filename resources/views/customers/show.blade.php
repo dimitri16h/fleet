@@ -81,6 +81,7 @@
                             {{$customer->billing_address1}}
                         @elseif($customer->address1)
                             {{$customer->address1}}
+                            <span class="float-right">(default)</span>
                         @else
                             None
                         @endif
@@ -90,6 +91,7 @@
                             {{$customer->billing_address2}}
                         @elseif($customer->address2)
                             {{$customer->address2}}
+                            <span class="float-right">(default)</span>
                         @else
                             None
                         @endif
