@@ -84,7 +84,7 @@
         <div class="col-6">
             <strong>Bill To: <br/></strong>
             @if ($customer)
-            {{$customer->name}}
+            {{$customer->name}}<br/>
             @endif
             @if ($customer->billing_address1 && $customer->billing_address2)
                 {{$customer->billing_address1}}<br/>{{$customer->billing_address2}}

@@ -128,9 +128,16 @@ class LoadsController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $customerName = $request->input('customer');
+        if ($customerName != "Select One:") {
+            $customer = \App\Customer::where('name', $customerName)->first();
+            $customerId = $customer->id;
+        }
+        else $customerId = null;
         $load = \App\Load::find($id);
         if ($load->company()->first()->owner_id == \Auth::user()->id) {
             $load->company_id = $load->company()->first()->id;
+            $load->customer_id = $customerId;
             $load->internal_number = $request->input('orderNum');
             if ($request->input('external')) $load->external_number = $request->input('external');
             if ($request->input('pickup1')) $load->pickup_address1 = $request->input('pickup1');
@@ -138,6 +145,7 @@ class LoadsController extends Controller
             if ($request->input('dropoff1')) $load->dropoff_address1 = $request->input('dropoff1');
             if ($request->input('dropoff2')) $load->dropoff_address2 = $request->input('dropoff2');
             if ($request->input('rate')) $load->rate = ($request->input('rate'))*100;
+            if ($request->input('description')) $load->description = ($request->input('description'));
             $load->save();
         }
         return redirect('/orders');
