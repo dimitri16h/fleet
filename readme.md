@@ -39,3 +39,9 @@ Companies - Shipments one to many
 
 Shipments - Customers one to many
 Shipments - Trucks many to many
+
+
+
+# Update 8/28/18
+
+The application can currently store info on customers and shipments and generate invoices per shipment. The next steps for it are to allow it to track information on shipments relevant to analytics and taxes (IFTA). I will be working on allowing the user to store miles driven (Total, empty, loaded, and per state) and then calculating the totals up quarterly to assist in filing taxes. As well as keeping information for fuel taxes such as how many gallons were bought, in which states, and their prices, all in relation to specific shipments.
